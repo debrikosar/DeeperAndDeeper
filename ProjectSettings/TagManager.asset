@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Surface
   - Seaweed
+  - Wall
   layers:
   - Default
   - TransparentFX
