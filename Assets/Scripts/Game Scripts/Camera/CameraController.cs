@@ -14,9 +14,6 @@ public class CameraController : MonoBehaviour
         restrictX = sea.size.x/2 - cameraSize*1.75f;
         restrictYdown = sea.size.y / 2 - cameraSize*0.95f;
         restrictYup = sea.size.y/ 2;
-        print("X" + restrictX);
-        print("Yup" + restrictYup);
-        print("Ydown" + restrictYdown);
     }
 
     // Update is called once per frame
