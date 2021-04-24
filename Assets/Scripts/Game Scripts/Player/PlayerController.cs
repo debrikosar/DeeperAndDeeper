@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action<float> OnTouchSurface;
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private float speed;
     private float horizontalMove;
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Surface"))
         {
+            OnTouchSurface?.Invoke(collision.transform.position.z);
             canMove = false;
         }
     }
