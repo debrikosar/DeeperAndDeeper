@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove;
     private float verticalMove;
     private Vector2 direction;
+    private bool canMove;
+
+    void Start()
+    {
+        canMove = true;
+    }
 
     void Update()
     {
@@ -24,6 +30,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        playerRb2d.AddForce(direction * speed * Time.deltaTime);
+        if(canMove)
+            playerRb2d.position += direction * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Surface"))
+        {
+            canMove = false;
+        }
     }
 }
