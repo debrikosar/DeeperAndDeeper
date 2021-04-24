@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - SaveStorage
+  - GoldCount
+  - SaveManager
   - Surface
   - Seaweed
   - Wall

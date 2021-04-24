@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GrandScriptOfUndestructibleness : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static bool isExisting;
 
-    // Update is called once per frame
-    void Update()
+    public void Awake()
     {
-        
+        if (isExisting)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+
+        isExisting = true;
     }
 }
