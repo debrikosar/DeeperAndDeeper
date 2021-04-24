@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoldFishController : MonoBehaviour
 {
-    public static event Action OnCollisionPlayer;
+    public event Action OnCollisionPlayer;
     [SerializeField] Rigidbody2D goldFishRb2D;
     [SerializeField] float goldFishSpeed;
 
