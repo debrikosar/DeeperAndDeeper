@@ -33,7 +33,7 @@ public class SharkController : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
             OnCollisionPlayer?.Invoke();
 
-        if(!collision.transform.CompareTag("Goldfish"))
+        if(!collision.transform.CompareTag("GoldFish"))
             MovePath();
     }
 
