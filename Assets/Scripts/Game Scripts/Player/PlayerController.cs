@@ -14,11 +14,9 @@ public class PlayerController : MonoBehaviour
     private float verticalMove;
     private Vector2 direction;
     private bool canMove;
-    private int surfaceTouchCount;
 
     private void Start()
     {
-        surfaceTouchCount = 1;
         transform.position = startPoint.transform.position;
     }
 
@@ -52,6 +50,10 @@ public class PlayerController : MonoBehaviour
             OnTouchSurface?.Invoke(transform.position.x);
             canMove = false;
         }
+        if (collision.CompareTag("Seaweed"))
+        {
+            StartCoroutine(TouchSeaweedRoutine());
+        }
     }
 
     IEnumerator JumpRoutine()
@@ -60,5 +62,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         canMove = true;
         playerRb2d.Sleep();
+    }
+
+    IEnumerator TouchSeaweedRoutine()
+    {
+        canMove = false;
+        yield return new WaitForSeconds(2f);
+        canMove = true;
     }
 }

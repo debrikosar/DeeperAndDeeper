@@ -31,20 +31,20 @@ public class BoatController : MonoBehaviour
         StartCoroutine(BoatShowAnimationRoutine(destination));
     }
 
-    IEnumerator BoatShowAnimationRoutine(Vector3 destination)
-    {
-        while (transform.position.x >= destination.x)
-        {
-            boatRb2D.MovePosition(transform.position + -transform.right * speedBoatAnimation);
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
     IEnumerator BoatHideAnimationRoutine(Vector3 destination)
     {
         while (transform.position.x <= destination.x)
         {
             boatRb2D.MovePosition(transform.position + transform.right * speedBoatAnimation);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator BoatShowAnimationRoutine(Vector3 destination)
+    {
+        while (transform.position.x >= destination.x)
+        {
+            boatRb2D.MovePosition(transform.position + -transform.right * speedBoatAnimation);
             yield return new WaitForEndOfFrame();
         }
     }
