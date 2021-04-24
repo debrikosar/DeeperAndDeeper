@@ -5,7 +5,8 @@ using UnityEngine;
 public class GoldFishController : MonoBehaviour
 {
     public static event Action OnCollisionPlayer;
-    [SerializeField] Rigidbody2D fishRb2D;
+    [SerializeField] Rigidbody2D goldFishRb2D;
+    [SerializeField] float goldFishSpeed;
 
     private void Start()
     {
@@ -23,7 +24,8 @@ public class GoldFishController : MonoBehaviour
 
     private void MovePath()
     {
-        fishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
+        goldFishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed), 
+                                            UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,5 +36,11 @@ public class GoldFishController : MonoBehaviour
             Destroy(gameObject);
         }
         MovePath();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Surface"))
+            goldFishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed), -goldFishSpeed);
     }
 }
