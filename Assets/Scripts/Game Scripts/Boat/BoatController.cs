@@ -1,45 +1,57 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatController : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Rigidbody2D boatRb2D;
+    [SerializeField] private Vector3 startBoatPos;
+    [SerializeField] private Vector3 hideBoatPos;
     [SerializeField] private float speedBoatAnimation;
-    private bool isBoatIdle;
-    private Vector3 startBoatPos;
 
     private void Awake()
     {
+        PlayerController.OnStartGame += HideBehindScene;
         PlayerController.OnTouchSurface += MoveToPlayer;
     }
 
     private void Start()
     {
-        isBoatIdle = true;
+        transform.position = startBoatPos;
     }
 
-    private void Update()
+    private void HideBehindScene()
     {
-        if(isBoatIdle)
-            transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z) + offset;
+        StartCoroutine(BoatHideAnimationRoutine(hideBoatPos));
     }
 
     private void MoveToPlayer(float posX)
     {
-        isBoatIdle = false;
-        startBoatPos = transform.position;
         Vector3 destination = new Vector3(posX, transform.position.y, transform.position.z);
-        StartCoroutine(BoatAnimationRoutine(destination));
+        StartCoroutine(BoatShowAnimationRoutine(destination));
     }
 
-    IEnumerator BoatAnimationRoutine(Vector3 destination)
+    IEnumerator BoatShowAnimationRoutine(Vector3 destination)
     {
-        while (transform.position != destination)
+        while (transform.position.x >= destination.x)
         {
-            transform.position = Vector3.Lerp(transform.position, destination, speedBoatAnimation * Time.deltaTime);
+            boatRb2D.MovePosition(transform.position + -transform.right * speedBoatAnimation);
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    IEnumerator BoatHideAnimationRoutine(Vector3 destination)
+    {
+        while (transform.position.x <= destination.x)
+        {
+            boatRb2D.MovePosition(transform.position + transform.right * speedBoatAnimation);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnStartGame -= HideBehindScene;
+        PlayerController.OnTouchSurface -= MoveToPlayer;
     }
 }
