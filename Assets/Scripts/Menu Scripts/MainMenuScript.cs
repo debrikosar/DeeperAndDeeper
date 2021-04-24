@@ -7,8 +7,26 @@ public class MainMenuScript : MonoBehaviour
 {
     public GameObject settingsMenu;
 
-    //change 1 to correct scene name later
-    public void PlayGame() =>
+    public GameObject saveStorage;
+    private SaveStorageScript saveStorageScript;
+
+    private void Start()
+    {
+        saveStorageScript = saveStorage.GetComponent<SaveStorageScript>();
+    }
+
+    /*public void PlayNewGame()
+    {
+        SwitchSceneToGame();
+    }*/
+
+    public void PlayLoadedGame()
+    {
+        saveStorageScript.PrepareForLoading();
+        SwitchSceneToGame();
+    }
+
+    public void SwitchSceneToGame() =>
         SceneManager.LoadScene(1);
 
     //smooth switch in progress
