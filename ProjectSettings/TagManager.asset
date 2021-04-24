@@ -7,11 +7,15 @@ TagManager:
   - SaveStorage
   - GoldCount
   - SaveManager
+  - Surface
+  - Seaweed
+  - Wall
+  - GoldFish
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
