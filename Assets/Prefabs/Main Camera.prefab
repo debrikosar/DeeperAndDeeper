@@ -97,3 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  restrictX: 26
+  restrictYup: 20
+  restrictYdown: -115
