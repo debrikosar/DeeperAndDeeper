@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,31 @@ public class AirBarScript : MonoBehaviour
 
     private const int airBarSize = -300;
 
+    public float airDepletionSpeed = 1f;
+    public float airDepletionAmount = 10f;
+
     private SaveManagerScript saveManagerScript;
+
 
     void Start()
     {
         saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
         rectTransform = gameObject.GetComponent<RectTransform>();
+
+        PlayerController.OnTouchSurface += RestoreAirAtSurfacen;
+        PlayerController.OnUnderWater += CancellSurfaceAirRestoration;
+        PlayerController.OnPickUpOxygenBuff += RestoreAir;
+
         StartCoroutine(DepleteAir());
     }
+
+    public void RestoreAirAtSurfacen(float whyDoINeedThis)
+    {
+        isUnderwater = false;
+        RestoreAir();
+    }
+
+    public void CancellSurfaceAirRestoration(bool isUnderwater) => this.isUnderwater = isUnderwater;
 
     public void RestoreAir()
     {
@@ -28,9 +46,9 @@ public class AirBarScript : MonoBehaviour
     {
         while (rectTransform.offsetMax.x > airBarSize)
         {   if(isUnderwater)
-                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x - 10, rectTransform.offsetMax.y);
+                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x - airDepletionAmount, rectTransform.offsetMax.y);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(airDepletionSpeed);
         }
 
         saveManagerScript.SaveFieldsIntoStatistic();
