@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static event Action<float> OnTouchSurface;
+    public static event Action<bool> OnUnderWater;
     public static event Action OnStartGame;
     public static event Action OnPickUpPearl;
     public static event Action OnPickUpOxygenBuff;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if(!canMove && Input.GetKeyDown(KeyCode.Space))
         {
             OnStartGame?.Invoke();
+            OnUnderWater?.Invoke(true);
             StartCoroutine(JumpRoutine());
         }
         horizontalMove = Input.GetAxis("Horizontal");
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Surface"))
         {
             OnTouchSurface?.Invoke(transform.position.x);
+            OnUnderWater?.Invoke(false);
             canMove = false;
         }
 
