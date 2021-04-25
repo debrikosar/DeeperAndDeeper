@@ -4920,9 +4920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb2d: {fileID: 1453366255640230939}
-  speed: 3
-  animator: {fileID: 146526164297975634}
   startPoint: {fileID: 0}
+  animator: {fileID: 146526164297975634}
+  speed: 3
 --- !u!50 &1453366255640230939
 Rigidbody2D:
   serializedVersion: 4

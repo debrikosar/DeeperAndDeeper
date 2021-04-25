@@ -13,13 +13,19 @@ public class PlayerController : MonoBehaviour
     public static event Action OnCollisionGoldFish;
 
     [SerializeField] private Rigidbody2D playerRb2d;
-    [SerializeField] private float speed;
-    [SerializeField] private Animator animator;
     [SerializeField] private GameObject startPoint;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float speed;
+
     private float horizontalMove;
     private float verticalMove;
-    private Vector2 direction;
     private bool canMove;
+
+    private void Awake()
+    {
+        StartController.OnCloseStartCanvas += JumpInWater;
+        ShopController.OnCloseShop += JumpInWater;
+    } 
 
     private void Start()
     {
@@ -28,15 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(!canMove && Input.GetKeyDown(KeyCode.Space))
-        {
-            OnStartGame?.Invoke();
-            OnUnderWater?.Invoke(true);
-            StartCoroutine(JumpRoutine());
-        }
         horizontalMove = Input.GetAxis("Horizontal");
         verticalMove = Input.GetAxis("Vertical");
-        direction = new Vector2(horizontalMove, verticalMove);
     }
 
     private void FixedUpdate()
@@ -44,10 +43,19 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    private void JumpInWater()
+    {
+        OnUnderWater?.Invoke(true);
+        StartCoroutine(JumpRoutine());
+    }
+
     private void Move()
     {
-        if(canMove)
+        if (canMove)
+        {
+            Vector2 direction = new Vector2(horizontalMove, verticalMove);
             playerRb2d.position += direction * speed * Time.deltaTime;
+        }  
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -113,5 +121,11 @@ public class PlayerController : MonoBehaviour
         speed *= 2;
         yield return new WaitForSeconds(5f);
         speed /= 2;
+    }
+
+    private void OnDestroy()
+    {
+        StartController.OnCloseStartCanvas -= JumpInWater;
+        ShopController.OnCloseShop -= JumpInWater;
     }
 }
