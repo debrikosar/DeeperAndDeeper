@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,8 +23,11 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayLoadedGame()
     {
-        saveStorageScript.PrepareForLoading();
-        SwitchSceneToGame();
+        if (File.Exists(Application.persistentDataPath + "/SaveData.json"))
+        {
+            saveStorageScript.PrepareForLoading();
+            SwitchSceneToGame();
+        }
     }
 
     public void SwitchSceneToGame() =>

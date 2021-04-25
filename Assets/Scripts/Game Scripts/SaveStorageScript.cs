@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class SaveStorageScript : MonoBehaviour
 {
     public bool isLoadingGame;
-
     public SaveData loadData;
+    public SaveData saveData;
 
     private SaveManagerScript saveManagerScript;
 
@@ -34,20 +34,33 @@ public class SaveStorageScript : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        if (isLoadingGame)
+        if(currentScene.name == "Game")
         {
-            LoadData();
-            saveManagerScript.LoadFields(loadData);
+            saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
+
+            if (isLoadingGame)
+            {
+                LoadData();
+                saveManagerScript.LoadFields(loadData);
+            }
+        }
+        else if(currentScene.name == "GameEndScene")
+        {
+            isLoadingGame = false;
+            File.Delete(Application.persistentDataPath + "/SaveData.json");
         }
     }
 
     public void LoadData() => 
         loadData = JsonConvert.DeserializeObject<SaveData>(File.ReadAllText(Application.persistentDataPath + "/SaveData.json"));
 
+
+    public void SaveStatistic(SaveData saveData) => this.saveData = saveData;
+
     public void SaveData(SaveData saveData) =>
-         File.WriteAllText(Application.persistentDataPath + "/SaveData.json", JsonConvert.SerializeObject(saveData, Formatting.Indented));
+        File.WriteAllText(Application.persistentDataPath + "/SaveData.json", JsonConvert.SerializeObject(saveData, Formatting.Indented));       
 
     public void PrepareForLoading() => isLoadingGame = true;
 }
