@@ -26,4 +26,9 @@ public class SaveManagerScript : MonoBehaviour
     {
         saveStorageScript.SaveData(new SaveData(Int32.Parse(goldCount.text)));
     }
+
+    public void SaveFieldsIntoStatistic()
+    {
+        saveStorageScript.SaveStatistic(new SaveData(Int32.Parse(goldCount.text)));
+    }
 }

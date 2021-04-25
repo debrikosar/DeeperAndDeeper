@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AirBarScript : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class AirBarScript : MonoBehaviour
 
     private const int airBarSize = -300;
 
+    private SaveManagerScript saveManagerScript;
+
     void Start()
     {
+        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
         rectTransform = gameObject.GetComponent<RectTransform>();
         StartCoroutine(DepleteAir());
     }
@@ -28,6 +32,9 @@ public class AirBarScript : MonoBehaviour
 
             yield return new WaitForSeconds(1);
         }
+
+        saveManagerScript.SaveFieldsIntoStatistic();
+        SceneManager.LoadScene("GameEndScene"); 
 
         StopCoroutine(DepleteAir());
     }

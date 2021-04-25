@@ -512,6 +512,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
+--- !u!114 &767470676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 164968358286422355, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
+  m_PrefabInstance: {fileID: 767470675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1da74ae65e4064d8c6c5b060161144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &853830972
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +672,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1136509228, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 767470676}
+    - target: {fileID: 1136509228, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveFields
+      objectReference: {fileID: 0}
     - target: {fileID: 955076295300946234, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
       propertyPath: currentAirValue
       value: 100
