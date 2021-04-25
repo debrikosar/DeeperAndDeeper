@@ -698,6 +698,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4494131676992973999, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494131676992973999, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494131677296877704, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494131677296877704, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4494131677828623533, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
@@ -784,6 +800,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4494131677828623537, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494131678418751329, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4494131678418751331, guid: 36af54ae7db9fc545a6eb5bdd11ddb3f, type: 3}
