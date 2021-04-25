@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1336414461905543470, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6490eef2780fbdf45a8d9a26fcd924ad, type: 3}
     - target: {fileID: 1343235451716046148, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -5
@@ -1302,12 +1306,20 @@ PrefabInstance:
       value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 3084148324650612697, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084148324650612697, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084148324650612697, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3084148324650612697, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8526388305909182574, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: player
@@ -1325,6 +1337,14 @@ PrefabInstance:
       propertyPath: startCanvas
       value: 
       objectReference: {fileID: 237177878}
+    - target: {fileID: 8526388305909182574, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: hideBoatPos.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526388305909182574, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: startBoatPos.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8746062442330189810, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_Name
       value: Environment

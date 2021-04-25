@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     public GameObject settingsMenu;
+    public GameObject warning;
 
     public GameObject saveStorage;
     private SaveStorageScript saveStorageScript;
@@ -28,6 +29,13 @@ public class MainMenuScript : MonoBehaviour
             saveStorageScript.PrepareForLoading();
             SwitchSceneToGame();
         }
+        else
+            warning.SetActive(true);
+    }
+
+    public void CloseWarning()
+    {
+        warning.SetActive(false);
     }
 
     public void SwitchSceneToGame() =>
