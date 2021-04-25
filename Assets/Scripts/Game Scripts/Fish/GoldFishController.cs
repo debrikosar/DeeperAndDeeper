@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class GoldFishController : MonoBehaviour
 {
-    public static event Action OnCollisionPlayer;
     [SerializeField] Rigidbody2D goldFishRb2D;
     [SerializeField] float goldFishSpeed;
 
@@ -32,7 +30,6 @@ public class GoldFishController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            OnCollisionPlayer?.Invoke();
             Destroy(gameObject);
         }
         MovePath();

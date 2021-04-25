@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PearlController : MonoBehaviour
+public class SpeedBuffController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
