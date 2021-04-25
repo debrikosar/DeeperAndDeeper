@@ -20,21 +20,17 @@ public class GoldScript : MonoBehaviour
         goldCount = Int32.Parse(goldCountText.text);
         goldFishControllers = new List<GoldFishController>();
 
-        foreach (Transform child in goldFishContainer.transform)
-        {
-            if (child.gameObject.tag == "GoldFish")
-            {
-                goldFishControllers.Add(child.gameObject.GetComponent<GoldFishController>());
-            }
-        }
-
-        foreach (GoldFishController goldFishController in goldFishControllers)
-            goldFishController.OnCollisionPlayer += OnGoldFishCatched;
+        PlayerController.OnCollisionGoldFish += OnGoldFishCatched;
     }
 
     public void OnGoldFishCatched()
     {
         goldCount++;
         goldCountText.text = goldCount.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnCollisionGoldFish -= OnGoldFishCatched;
     }
 }
