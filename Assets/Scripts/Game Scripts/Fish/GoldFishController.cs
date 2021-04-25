@@ -5,6 +5,10 @@ public class GoldFishController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D goldFishRb2D;
     [SerializeField] float goldFishSpeed;
+    [SerializeField] SpriteRenderer goldFishSpriteRenderer;
+    [SerializeField] Sprite goldFishLeft;
+    [SerializeField] Sprite goldFishRight;
+    
 
     private void Start()
     {
@@ -24,6 +28,15 @@ public class GoldFishController : MonoBehaviour
     {
         goldFishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed), 
                                             UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed));
+        CheckSprite();
+    }
+
+    private void CheckSprite()
+    {
+        if (goldFishRb2D.velocity.x >= 0)
+            goldFishSpriteRenderer.sprite = goldFishRight;
+        else
+            goldFishSpriteRenderer.sprite = goldFishLeft;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

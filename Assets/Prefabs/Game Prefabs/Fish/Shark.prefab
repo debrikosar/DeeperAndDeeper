@@ -99,7 +99,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -120,6 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharkRb2D: {fileID: 7460392374900282882}
   sharkSpeed: 4
+  sharkSpriteRenderer: {fileID: 7660403243436891711}
+  sharkLeft: {fileID: 21300000, guid: bb63e8c41f7cd9f4c9f5571368f32823, type: 3}
+  sharkRight: {fileID: 21300000, guid: 2cc5490589d63b647adf7170d6aafbd4, type: 3}
 --- !u!61 &5279925742947920363
 BoxCollider2D:
   m_ObjectHideFlags: 0

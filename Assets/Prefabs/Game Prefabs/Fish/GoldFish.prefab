@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldFishRb2D: {fileID: 2751326406252376566}
   goldFishSpeed: 1
+  goldFishSpriteRenderer: {fileID: 6354447482111631961}
+  goldFishLeft: {fileID: 21300000, guid: a6075ed162ec7c84896c03cb5ff347f4, type: 3}
+  goldFishRight: {fileID: 21300000, guid: 0d4dd5dbd226ea44db943924e1d52c14, type: 3}
 --- !u!61 &8526467534401364578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +142,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
