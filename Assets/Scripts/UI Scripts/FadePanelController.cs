@@ -14,12 +14,13 @@ public class FadePanelController : MonoBehaviour
     private void ChangeAlfaChannel()
     {
         float deep = Camera.main.transform.position.y;
-        if (deep < 0 && image.color.a < 0.8)
+        if (deep < 0)
         {
-            deep /= -50;
+            deep /= -100;
             var tempColor = image.color;
             tempColor.a = deep;
             image.color = tempColor;
+            print(deep);
         }
     }
 }
