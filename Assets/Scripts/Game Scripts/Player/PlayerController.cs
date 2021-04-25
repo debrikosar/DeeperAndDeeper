@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator JumpRoutine()
     {
-        playerRb2d.AddForce(-transform.up * 100f);
+        playerRb2d.AddForce(-transform.up * 100000f);
         yield return new WaitForSeconds(2f);
         canMove = true;
         playerRb2d.Sleep();

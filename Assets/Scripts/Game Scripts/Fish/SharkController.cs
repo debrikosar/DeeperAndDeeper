@@ -39,7 +39,7 @@ public class SharkController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Surface"))
+        if (collision.transform.CompareTag("SurfaceFish"))
             sharkRb2D.velocity = new Vector2(UnityEngine.Random.Range(-sharkSpeed, sharkSpeed), -sharkSpeed);
     }
 }

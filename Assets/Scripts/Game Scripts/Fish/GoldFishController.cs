@@ -40,7 +40,7 @@ public class GoldFishController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Surface"))
+        if (collision.transform.CompareTag("SurfaceFish"))
             goldFishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed), -goldFishSpeed);
     }
 }
