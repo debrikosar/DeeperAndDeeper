@@ -6,6 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action<float> OnTouchSurface;
     public static event Action OnStartGame;
+    public static event Action OnPickUpPearl;
+    public static event Action OnPickUpOxygenBuff;
+    public static event Action OnCollisionShark;
+    public static event Action OnCollisionGoldFish;
+
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private float speed;
     [SerializeField] private Animator animator;
@@ -50,15 +55,44 @@ public class PlayerController : MonoBehaviour
             OnTouchSurface?.Invoke(transform.position.x);
             canMove = false;
         }
+
         if (collision.CompareTag("Seaweed"))
         {
             StartCoroutine(TouchSeaweedRoutine());
+        }
+
+        if (collision.CompareTag("Pearl"))
+        {
+            OnPickUpPearl?.Invoke();
+        }
+
+        if (collision.CompareTag("SpeedBuff"))
+        {
+            StartCoroutine(PickUpSpeedBuff());
+        }
+
+        if (collision.CompareTag("OxygenBuff"))
+        {
+            OnPickUpOxygenBuff?.Invoke();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Shark"))
+        {
+            OnCollisionShark?.Invoke();
+        }
+
+        if (collision.collider.CompareTag("GoldFish"))
+        {
+            OnCollisionGoldFish?.Invoke();
         }
     }
 
     IEnumerator JumpRoutine()
     {
-        playerRb2d.AddForce(-transform.up * 100f);
+        playerRb2d.AddForce(-transform.up * 100000f);
         yield return new WaitForSeconds(2f);
         canMove = true;
         playerRb2d.Sleep();
@@ -69,5 +103,12 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(2f);
         canMove = true;
+    }
+
+    IEnumerator PickUpSpeedBuff()
+    {
+        speed *= 2;
+        yield return new WaitForSeconds(5f);
+        speed /= 2;
     }
 }

@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class SharkController : MonoBehaviour
 {
-    public static event Action OnCollisionPlayer;
     [SerializeField] Rigidbody2D sharkRb2D;
     [SerializeField] float sharkSpeed;
 
@@ -30,16 +28,13 @@ public class SharkController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
-            OnCollisionPlayer?.Invoke();
-
         if(!collision.transform.CompareTag("GoldFish"))
             MovePath();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Surface"))
+        if (collision.transform.CompareTag("SurfaceFish"))
             sharkRb2D.velocity = new Vector2(UnityEngine.Random.Range(-sharkSpeed, sharkSpeed), -sharkSpeed);
     }
 }

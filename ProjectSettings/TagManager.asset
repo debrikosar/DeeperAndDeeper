@@ -11,6 +11,11 @@ TagManager:
   - Seaweed
   - Wall
   - GoldFish
+  - SurfaceFish
+  - SpeedBuff
+  - Pearl
+  - OxygenBuff
+  - Shark
   layers:
   - Default
   - TransparentFX

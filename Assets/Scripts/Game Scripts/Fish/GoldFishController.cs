@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class GoldFishController : MonoBehaviour
 {
-    public event Action OnCollisionPlayer;
     [SerializeField] Rigidbody2D goldFishRb2D;
     [SerializeField] float goldFishSpeed;
 
@@ -32,7 +30,6 @@ public class GoldFishController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            OnCollisionPlayer?.Invoke();
             Destroy(gameObject);
         }
         MovePath();
@@ -40,7 +37,7 @@ public class GoldFishController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Surface"))
+        if (collision.transform.CompareTag("SurfaceFish"))
             goldFishRb2D.velocity = new Vector2(UnityEngine.Random.Range(-goldFishSpeed, goldFishSpeed), -goldFishSpeed);
     }
 }
