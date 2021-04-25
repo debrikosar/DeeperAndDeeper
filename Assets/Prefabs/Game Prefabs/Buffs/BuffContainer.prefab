@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7368476071891647974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4564594726577050570}
+  m_Layer: 0
+  m_Name: BuffContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4564594726577050570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368476071891647974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4935020732978853990}
+  - {fileID: 1167890462014849654}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1879847666965865787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4564594726577050570}
+    m_Modifications:
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410251747548382302, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+      propertyPath: m_Name
+      value: OxygenBuffContainer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+--- !u!4 &1167890462014849654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 730604936943806285, guid: 65a0cff718902234cb021b5417ee60fa, type: 3}
+  m_PrefabInstance: {fileID: 1879847666965865787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5239478135005308720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4564594726577050570}
+    m_Modifications:
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939776545267933138, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+      propertyPath: m_Name
+      value: SpeedBuffContainer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+--- !u!4 &4935020732978853990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 921807111645470550, guid: e3060edd4b640734fb816c18b719f63c, type: 3}
+  m_PrefabInstance: {fileID: 5239478135005308720}
+  m_PrefabAsset: {fileID: 0}

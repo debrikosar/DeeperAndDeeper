@@ -1221,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 1864203133}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: speed
-      value: 50
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: startPoint
@@ -1320,6 +1320,14 @@ PrefabInstance:
     - target: {fileID: 3084148324650612697, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079362967663112910, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079362967663112910, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.048
       objectReference: {fileID: 0}
     - target: {fileID: 8526388305909182574, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: player
