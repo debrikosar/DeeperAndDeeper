@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bubbles;
     [SerializeField] private Vector3 bubblesPosRight;
     [SerializeField] private Vector3 bubblesPosLeft;
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
 
     private SaveManagerScript saveManagerScript;
 
