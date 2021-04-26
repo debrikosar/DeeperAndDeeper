@@ -9,6 +9,7 @@ using System;
 public class SaveManagerScript : MonoBehaviour
 {     
     public TextMeshProUGUI goldCount;
+    public TextMeshProUGUI pearlCount;
 
     private SaveStorageScript saveStorageScript;
 
@@ -20,15 +21,16 @@ public class SaveManagerScript : MonoBehaviour
     public void LoadFields(SaveData loadData)
     {
         goldCount.text = loadData.goldAmount.ToString();
+        pearlCount.text = loadData.pearlAmount.ToString();
     }
 
     public void SaveFields()
     {
-        saveStorageScript.SaveData(new SaveData(Int32.Parse(goldCount.text)));
+        saveStorageScript.SaveData(new SaveData(Int32.Parse(goldCount.text), Int32.Parse(pearlCount.text)));
     }
 
     public void SaveFieldsIntoStatistic()
     {
-        saveStorageScript.SaveStatistic(new SaveData(Int32.Parse(goldCount.text)));
+        saveStorageScript.SaveStatistic(new SaveData(Int32.Parse(goldCount.text), Int32.Parse(goldCount.text)));
     }
 }

@@ -5,13 +5,15 @@ using UnityEngine;
 public class SaveData
 {
     public int goldAmount;
+    public int pearlAmount;
 
     //formated like "upgrade type" (key)/"upgrade level" (value)
     public Dictionary<string, int> upgradesStages;
 
-    public SaveData(int goldAmount)
+    public SaveData(int goldAmount, int pearlAmount)
     {
         this.goldAmount = goldAmount;
+        this.pearlAmount = pearlAmount;
         upgradesStages = new Dictionary<string, int>();
     }
 
