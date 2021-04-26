@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private GameObject startPoint;
-    [SerializeField] private Animator animator;
     [SerializeField] private float speed;
 
     private float horizontalMove;
