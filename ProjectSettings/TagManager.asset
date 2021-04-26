@@ -17,6 +17,7 @@ TagManager:
   - OxygenBuff
   - Shark
   - Coral
+  - GigaPearl
   layers:
   - Default
   - TransparentFX
