@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public static event Action OnCollisionGoldFish;
 
     [SerializeField] private Rigidbody2D playerRb2d;
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject startPoint;
     [SerializeField] private GameObject flashLight;
     [SerializeField] private float speed;
@@ -62,6 +63,14 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 direction = new Vector2(horizontalMove, verticalMove);
             playerRb2d.position += direction * speed * Time.deltaTime;
+            if (horizontalMove > 0)
+            {
+                animator.SetBool("IsRight", true);
+            }
+            else if(horizontalMove < 0)
+            {
+                animator.SetBool("IsRight", false);
+            }
         }  
     }
 
@@ -139,9 +148,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PickUpSpeedBuff()
     {
-        speed *= 2;
+        speed += 5;
         yield return new WaitForSeconds(5f);
-        speed /= 2;
+        speed -= 5;
     }
 
     private void AddSpeed()
