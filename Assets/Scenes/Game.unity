@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.2033081
       objectReference: {fileID: 0}
+    - target: {fileID: 7205085365567424375, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
 --- !u!114 &1064238628 stripped
@@ -1221,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 1864203133}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: speed
-      value: 3
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: startPoint

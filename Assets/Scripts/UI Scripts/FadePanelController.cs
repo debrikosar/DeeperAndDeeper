@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class FadePanelController : MonoBehaviour
 {
-    [SerializeField] private Image image;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     // Update is called once per frame
     void Update()
@@ -17,9 +17,9 @@ public class FadePanelController : MonoBehaviour
         if (deep < 0)
         {
             deep /= -100;
-            var tempColor = image.color;
+            var tempColor = spriteRenderer.color;
             tempColor.a = deep;
-            image.color = tempColor;
+            spriteRenderer.color = tempColor;
         }
     }
 }
