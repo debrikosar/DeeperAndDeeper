@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action<float> OnTouchSurface;
     public static event Action<bool> OnUnderWater;
-    public static event Action OnStartGame;
     public static event Action OnPickUpPearl;
     public static event Action OnPickUpOxygenBuff;
     public static event Action OnCollisionShark;
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         StartController.OnCloseStartCanvas += JumpInWater;
         ShopController.OnCloseShop += JumpInWater;
+        ShopController.OnBuySpeed += AddSpeed;
     } 
 
     private void Start()
@@ -120,6 +120,11 @@ public class PlayerController : MonoBehaviour
         speed *= 2;
         yield return new WaitForSeconds(5f);
         speed /= 2;
+    }
+
+    private void AddSpeed()
+    {
+        speed++;
     }
 
     private void OnDestroy()

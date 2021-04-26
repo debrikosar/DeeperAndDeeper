@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,16 +16,20 @@ public class AirBarScript : MonoBehaviour
 
     private SaveManagerScript saveManagerScript;
 
-
-    void Start()
+    void Awake()
     {
-        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
-        rectTransform = gameObject.GetComponent<RectTransform>();
-
         PlayerController.OnTouchSurface += RestoreAirAtSurfacen;
         PlayerController.OnUnderWater += CancellSurfaceAirRestoration;
         PlayerController.OnPickUpOxygenBuff += RestoreAir;
+        PlayerController.OnCollisionShark += SharkAirDepletion;
+        ShopController.OnBuyOxygen += ReduceAirConsumption;
+    }
 
+    void Start()
+    {
+        isUnderwater = false;
+        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
+        rectTransform = gameObject.GetComponent<RectTransform>();
         StartCoroutine(DepleteAir());
     }
 
@@ -62,5 +64,20 @@ public class AirBarScript : MonoBehaviour
     public void SharkAirDepletion()
     {
         rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x - SharkDepletionAmount, rectTransform.offsetMax.y);
+    }
+
+    private void ReduceAirConsumption()
+    {
+        if(airDepletionAmount > 2f)
+            airDepletionAmount--;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnTouchSurface -= RestoreAirAtSurfacen;
+        PlayerController.OnUnderWater -= CancellSurfaceAirRestoration;
+        PlayerController.OnPickUpOxygenBuff -= RestoreAir;
+        PlayerController.OnCollisionShark -= SharkAirDepletion;
+        ShopController.OnBuyOxygen -= ReduceAirConsumption;
     }
 }

@@ -10,27 +10,38 @@ public class GoldScript : MonoBehaviour
     private List<GoldFishController> goldFishControllers;
 
     private TextMeshProUGUI goldCountText;
-    private int goldCount;
+    public int goldCount;
 
     public GameObject goldFishContainer;
+
+    private void Awake()
+    {
+        PlayerController.OnCollisionGoldFish += GoldFishCatched;
+        ShopController.OnBuyAnythingFish += SpendGold;
+    }
 
     private void Start()
     {
         goldCountText = this.gameObject.GetComponent<TextMeshProUGUI>();
         goldCount = Int32.Parse(goldCountText.text);
         goldFishControllers = new List<GoldFishController>();
-
-        PlayerController.OnCollisionGoldFish += OnGoldFishCatched;
     }
 
-    public void OnGoldFishCatched()
+    public void GoldFishCatched()
     {
         goldCount++;
         goldCountText.text = goldCount.ToString();
     }
 
+    public void SpendGold(int amount)
+    {
+        goldCount -= amount;
+        goldCountText.text = goldCount.ToString();
+    }
+
     private void OnDestroy()
     {
-        PlayerController.OnCollisionGoldFish -= OnGoldFishCatched;
+        PlayerController.OnCollisionGoldFish -= GoldFishCatched;
+        ShopController.OnBuyAnythingFish -= SpendGold;
     }
 }
