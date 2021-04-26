@@ -1,29 +1,38 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public static event Action<float> OnTouchSurface;
     public static event Action<bool> OnUnderWater;
     public static event Action OnPickUpPearl;
+    public static event Action OnPickUpGigaPearl;
     public static event Action OnPickUpOxygenBuff;
     public static event Action OnCollisionShark;
     public static event Action OnCollisionGoldFish;
 
     [SerializeField] private Rigidbody2D playerRb2d;
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject startPoint;
+    [SerializeField] private GameObject flashLight;
     [SerializeField] private float speed;
+
+    private SaveManagerScript saveManagerScript;
 
     private float horizontalMove;
     private float verticalMove;
     private bool canMove;
+    private bool winCondition;
 
     private void Awake()
     {
+        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
         StartController.OnCloseStartCanvas += JumpInWater;
         ShopController.OnCloseShop += JumpInWater;
         ShopController.OnBuySpeed += AddSpeed;
+        ShopController.OnBuyFlashlight += AddFlashLight;
     } 
 
     private void Start()
@@ -54,6 +63,14 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 direction = new Vector2(horizontalMove, verticalMove);
             playerRb2d.position += direction * speed * Time.deltaTime;
+            if (horizontalMove > 0)
+            {
+                animator.SetBool("IsRight", true);
+            }
+            else if(horizontalMove < 0)
+            {
+                animator.SetBool("IsRight", false);
+            }
         }  
     }
 
@@ -61,9 +78,18 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Surface"))
         {
-            OnTouchSurface?.Invoke(transform.position.x);
-            OnUnderWater?.Invoke(false);
-            canMove = false;
+            if (!winCondition)
+            {
+                OnTouchSurface?.Invoke(transform.position.x);
+                OnUnderWater?.Invoke(false);
+                canMove = false;
+            }
+            else
+            {
+                print("WIN");
+                saveManagerScript.SaveFieldsIntoStatistic();
+                SceneManager.LoadScene("WinScene");
+            }
         }
 
         if (collision.CompareTag("Seaweed"))
@@ -74,6 +100,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Pearl"))
         {
             OnPickUpPearl?.Invoke();
+        }
+
+        if (collision.CompareTag("GigaPearl"))
+        {
+            winCondition = true;
         }
 
         if (collision.CompareTag("SpeedBuff"))
@@ -117,9 +148,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PickUpSpeedBuff()
     {
-        speed *= 2;
+        speed += 5;
         yield return new WaitForSeconds(5f);
-        speed /= 2;
+        speed -= 5;
     }
 
     private void AddSpeed()
@@ -127,9 +158,16 @@ public class PlayerController : MonoBehaviour
         speed++;
     }
 
+    private void AddFlashLight()
+    {
+        flashLight.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         StartController.OnCloseStartCanvas -= JumpInWater;
         ShopController.OnCloseShop -= JumpInWater;
+        ShopController.OnBuySpeed -= AddSpeed;
+        ShopController.OnBuyFlashlight -= AddFlashLight;
     }
 }

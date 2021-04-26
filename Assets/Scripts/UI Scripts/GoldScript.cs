@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -12,7 +10,7 @@ public class GoldScript : MonoBehaviour
     private void Awake()
     {
         PlayerController.OnCollisionGoldFish += GoldFishCatched;
-        ShopController.OnBuyAnythingFish += SpendGold;
+        ShopController.OnBuyAnything += SpendGold;
     }
 
     private void Start()
@@ -36,6 +34,6 @@ public class GoldScript : MonoBehaviour
     private void OnDestroy()
     {
         PlayerController.OnCollisionGoldFish -= GoldFishCatched;
-        ShopController.OnBuyAnythingFish -= SpendGold;
+        ShopController.OnBuyAnything -= SpendGold;
     }
 }

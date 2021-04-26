@@ -18,6 +18,7 @@ TagManager:
   - Shark
   - Coral
   - TimeManager
+  - GigaPearl
   layers:
   - Default
   - TransparentFX
