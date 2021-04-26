@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public static event Action OnCollisionShark;
     public static event Action OnCollisionGoldFish;
     public static event Action OnCollisionWeed;
+    public static event Action OnWinning;
 
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private Animator animator;
@@ -94,8 +95,9 @@ public class PlayerController : MonoBehaviour
             else
             {
                 print("WIN");
+                OnWinning?.Invoke();
                 saveManagerScript.SaveFieldsIntoStatistic();
-                SceneManager.LoadScene("WinScene");
+                SceneManager.LoadScene("GameWinScene");
             }
         }
 
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("GigaPearl"))
         {
+            OnPickUpGigaPearl?.Invoke();
             winCondition = true;
         }
 
