@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bubbles;
     [SerializeField] private Vector3 bubblesPosRight;
     [SerializeField] private Vector3 bubblesPosLeft;
+    [SerializeField] private Vector3 bubblesPosCenter;
     [SerializeField] private float speed;
 
     private SaveManagerScript saveManagerScript;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                bubbles.transform.localPosition = Vector3.zero;
+                bubbles.transform.localPosition = bubblesPosCenter;
             }
         }  
     }
@@ -171,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
     private void AddSpeed()
     {
-        speed++;
+        speed += 2;
     }
 
     private void AddFlashLight()

@@ -8,9 +8,6 @@ public class GoldFishController : MonoBehaviour
     [SerializeField] SpriteRenderer goldFishSpriteRenderer;
     [SerializeField] Sprite goldFishLeft;
     [SerializeField] Sprite goldFishRight;
-    [SerializeField] private GameObject bubbles;
-    [SerializeField] private Vector3 bubblesPosRight;
-    [SerializeField] private Vector3 bubblesPosLeft;
 
     private float lastPosX;
     private float lastPosY;
@@ -55,12 +52,10 @@ public class GoldFishController : MonoBehaviour
         if (goldFishRb2D.velocity.x >= 0)
         {
             goldFishSpriteRenderer.sprite = goldFishRight;
-            bubbles.transform.localPosition = bubblesPosRight;
         }
         else
         {
             goldFishSpriteRenderer.sprite = goldFishLeft;
-            bubbles.transform.localPosition = bubblesPosLeft;
         }
     }
 

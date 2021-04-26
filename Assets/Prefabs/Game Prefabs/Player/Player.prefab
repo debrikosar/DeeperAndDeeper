@@ -232,6 +232,7 @@ MonoBehaviour:
   bubbles: {fileID: 5963315321341620480}
   bubblesPosRight: {x: 0.44, y: 0.119, z: -5}
   bubblesPosLeft: {x: -0.44, y: 0.119, z: -5}
+  bubblesPosCenter: {x: 0, y: 0.119, z: -5}
   speed: 3
 --- !u!50 &1453366255640230939
 Rigidbody2D:

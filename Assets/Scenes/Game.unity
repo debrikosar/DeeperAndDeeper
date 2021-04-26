@@ -4550,6 +4550,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3763344920086457765, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+      propertyPath: TriggerModule.primitives.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4622298025975883113, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
