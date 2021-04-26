@@ -9,10 +9,13 @@ public class SharkController : MonoBehaviour
     [SerializeField] Sprite sharkLeft;
     [SerializeField] Sprite sharkRight;
 
+    private float lastPosX;
+    private float lastPosY;
 
     private void Start()
     {
         StartCoroutine(SharkRoutine());
+        StartCoroutine(CheckIdle());
     }
 
     IEnumerator SharkRoutine()
@@ -21,6 +24,19 @@ public class SharkController : MonoBehaviour
         {
             MovePath();
             yield return new WaitForSeconds(10f);
+        }
+    }
+
+    IEnumerator CheckIdle()
+    {
+        while (true)
+        {
+            if (sharkRb2D.transform.position.x == lastPosX &&
+                sharkRb2D.transform.position.y == lastPosY)
+                MovePath();
+            lastPosX = sharkRb2D.transform.position.x;
+            lastPosY = sharkRb2D.transform.position.y;
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -43,11 +59,16 @@ public class SharkController : MonoBehaviour
     {
         if(!collision.transform.CompareTag("GoldFish"))
             MovePath();
+        else
+            CheckSprite();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("SurfaceFish"))
+        {
             sharkRb2D.velocity = new Vector2(UnityEngine.Random.Range(-sharkSpeed, sharkSpeed), -sharkSpeed);
+            CheckSprite();
+        }
     }
 }

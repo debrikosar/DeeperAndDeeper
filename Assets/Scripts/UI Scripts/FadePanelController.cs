@@ -20,7 +20,6 @@ public class FadePanelController : MonoBehaviour
             var tempColor = image.color;
             tempColor.a = deep;
             image.color = tempColor;
-            print(deep);
         }
     }
 }
