@@ -317,6 +317,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5660429657901276622, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
   m_PrefabInstance: {fileID: 5660429658441321365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &562143965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7859723252716551365, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
+  m_PrefabInstance: {fileID: 8746062441546368870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &562143967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562143965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77455edfe003b104f8f8ed8632165791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coralSprites:
+  - {fileID: 21300000, guid: 699482b5d8274744896b6a50614e428a, type: 3}
+  - {fileID: 21300000, guid: 336503a0fca730848951051846f9d9b9, type: 3}
+  - {fileID: 21300000, guid: 56659d7985c0e2c43aeaf46a55371f80, type: 3}
+  - {fileID: 21300000, guid: b4066df43f4ba4e4394f2e00cf5cdce2, type: 3}
+  - {fileID: 21300000, guid: 078952fe45b3d134192389519f2371dc, type: 3}
+  - {fileID: 21300000, guid: 9b1a7a1c551c9614095d708ae7a34164, type: 3}
+  - {fileID: 21300000, guid: 83ad8a611d6c8274290f1c4edafaf952, type: 3}
 --- !u!1 &571624393
 GameObject:
   m_ObjectHideFlags: 0
