@@ -1031,6 +1031,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1772655607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 955076297042416808, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
+  m_PrefabInstance: {fileID: 1064238627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ddad85282711a4baf74fe1d124d5e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1864203133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2755139174409834817, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
@@ -1111,6 +1122,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 642fce1a2408ad449971c65ac66db82d, type: 3}
+    - target: {fileID: 4698608468388895143, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
+      propertyPath: goldScript
+      value: 
+      objectReference: {fileID: 1772655607}
     - target: {fileID: 5087376047906336059, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

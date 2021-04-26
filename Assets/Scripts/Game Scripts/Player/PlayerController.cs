@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         StartController.OnCloseStartCanvas += JumpInWater;
         ShopController.OnCloseShop += JumpInWater;
+        ShopController.OnBuySpeed += AddSpeed;
     } 
 
     private void Start()
@@ -119,6 +120,11 @@ public class PlayerController : MonoBehaviour
         speed *= 2;
         yield return new WaitForSeconds(5f);
         speed /= 2;
+    }
+
+    private void AddSpeed()
+    {
+        speed++;
     }
 
     private void OnDestroy()
