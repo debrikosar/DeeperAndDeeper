@@ -14,13 +14,22 @@ public class TimeManagerScript : MonoBehaviour
     {
         startTime = DateTime.Now;
         saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
-        AirBarScript.OnOxygenDepletion += SavePlayTime;
+        AirBarScript.OnOxygenDepletion += SaveDeathPlayTime;
     }
 
     public void SavePlayTime()
     {
-        playTime = DateTime.Now - startTime;
+        playTime += DateTime.Now - startTime;
+        startTime = DateTime.Now;
         saveStorageScript.playTime = playTime;
+        Debug.Log(saveStorageScript.playTime);
+    }
+
+    public void SaveDeathPlayTime()
+    {
+        playTime += DateTime.Now - startTime;
+        saveStorageScript.playTime = playTime;
+        Debug.Log(saveStorageScript.playTime);
     }
 
 }

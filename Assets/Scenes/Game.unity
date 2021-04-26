@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 368168553}
   m_Layer: 0
   m_Name: TimeManager
-  m_TagString: Untagged
+  m_TagString: TimeManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,6 +578,10 @@ PrefabInstance:
       propertyPath: pearlCount
       value: 
       objectReference: {fileID: 821692628}
+    - target: {fileID: 164968358286422355, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 368168552}
     - target: {fileID: 164968358286422356, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
       propertyPath: m_Name
       value: SaveManager
