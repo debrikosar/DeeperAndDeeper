@@ -19,8 +19,8 @@ public class ShopController : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedPriceText;
     [SerializeField] TextMeshProUGUI flashlightPriceText;
 
-    [SerializeField] int oxygenPrice;
-    [SerializeField] int speedPrice;
+    [SerializeField] public int oxygenPrice;
+    [SerializeField] public int speedPrice;
     [SerializeField] int flashlightPrice;
 
     public void Start()
@@ -66,7 +66,7 @@ public class ShopController : MonoBehaviour
         shopCanvas.SetActive(false);
     }
 
-    private void RefreshText()
+    public void RefreshText()
     {
         oxygenPriceText.text = oxygenPrice.ToString();
         speedPriceText.text = speedPrice.ToString();

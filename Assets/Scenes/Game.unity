@@ -242,7 +242,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d04193370780f540b9c6550ff8d2491, type: 3}
   - {fileID: 8300000, guid: 331fd9cf5dbcf7c47a4e5a58319f6dbe, type: 3}
   - {fileID: 8300000, guid: dd57f9b787982b748b00db579bde9d69, type: 3}
+  music:
+  - {fileID: 8300000, guid: b0329bb9b43057c449f46546376d5645, type: 3}
+  - {fileID: 8300000, guid: b9fb440f8e8055c4ea0f5715a3458a27, type: 3}
   soundsSource: {fileID: 1629465780}
+  musicSource: {fileID: 0}
 --- !u!4 &86839445
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,6 +1325,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 164968358286422355, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
+      propertyPath: flashligh
+      value: 
+      objectReference: {fileID: 1809804470}
+    - target: {fileID: 164968358286422355, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
       propertyPath: goldCount
       value: 
       objectReference: {fileID: 1064238628}
@@ -1332,6 +1340,10 @@ PrefabInstance:
       propertyPath: timeManager
       value: 
       objectReference: {fileID: 368168552}
+    - target: {fileID: 164968358286422355, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
+      propertyPath: shopController
+      value: 
+      objectReference: {fileID: 5660429658441321366}
     - target: {fileID: 164968358286422356, guid: 5b016e02897f53f49b700dda2dc89c4c, type: 3}
       propertyPath: m_Name
       value: SaveManager
@@ -2260,6 +2272,10 @@ PrefabInstance:
     - target: {fileID: 1136509228, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SaveFields
+      objectReference: {fileID: 0}
+    - target: {fileID: 955076295300946232, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
+      propertyPath: m_TagString
+      value: AirBar
       objectReference: {fileID: 0}
     - target: {fileID: 955076295300946234, guid: 8ae88af782756704ba52e6d84470b7b2, type: 3}
       propertyPath: currentAirValue
@@ -4397,6 +4413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
+--- !u!1 &5660429658441321366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 990319372997416514, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
+  m_PrefabInstance: {fileID: 5660429658441321365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6910207652968696040
 PrefabInstance:
   m_ObjectHideFlags: 0

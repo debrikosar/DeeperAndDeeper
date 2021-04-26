@@ -10,14 +10,26 @@ public class SaveData
     public TimeSpan playTime;
 
     //formated like "upgrade type" (key)/"upgrade level" (value)
-    public Dictionary<string, int> upgradesStages;
+    public Dictionary<string, float> upgradesStages;
+    public int airUpgradePrice;
+    public int speedUpgradePrice;
 
-    public SaveData(int goldAmount, int pearlAmount, TimeSpan playTime)
+    /*public SaveData(int goldAmount, int pearlAmount, TimeSpan playTime)
     {
         this.goldAmount = goldAmount;
         this.pearlAmount = pearlAmount;
         this.playTime = playTime;
-        upgradesStages = new Dictionary<string, int>();
+        upgradesStages = new Dictionary<string, float>();
+    }*/
+
+    public SaveData(int goldAmount, int pearlAmount, TimeSpan playTime, Dictionary<string, float> upgradesStages, int airUpgradePrice, int speedUpgradePrice)
+    {
+        this.goldAmount = goldAmount;
+        this.pearlAmount = pearlAmount;
+        this.playTime = playTime;
+        this.upgradesStages = upgradesStages;
+        this.airUpgradePrice = airUpgradePrice;
+        this.speedUpgradePrice = speedUpgradePrice;
     }
 
     public void SaveUpgrades(List<UpgradeInfo> upgradesInfo)

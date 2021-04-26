@@ -5,13 +5,17 @@ using UnityEngine;
 public class AudioManagerScript : MonoBehaviour
 {
     public AudioClip[] sounds;
+    public AudioClip[] music;
 
     public AudioSource soundsSource;
+    public AudioSource musicSource;
 
     private SaveStorageScript saveStorageScript;
 
     private void Start()
     {
+        musicSource = GameObject.FindWithTag("MusicSource").GetComponent<AudioSource>();
+
         PlayerController.OnCollisionGoldFish += PlayGoldfishSound;
         PlayerController.OnPickUpSpeedBuff += PlaySpeedBoostSound;
         PlayerController.OnPickUpOxygenBuff += PlayAirBallonSound;
@@ -19,6 +23,7 @@ public class AudioManagerScript : MonoBehaviour
         PlayerController.OnTouchSurface += PlaySplashSound;
         PlayerController.OnCollisionWeed += PlaySeaweedSound;
         PlayerController.OnPickUpGigaPearl += PlayGigaperalSound;
+        PlayerController.OnWinning += PlayCalmMusic;
         saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
         soundsSource.volume = saveStorageScript.soundsVolume;
     }
@@ -62,7 +67,15 @@ public class AudioManagerScript : MonoBehaviour
     public void PlayGigaperalSound()
     {
         soundsSource.clip = sounds[6];
+        musicSource.clip = sounds[1];
         soundsSource.Play();
+        musicSource.Play();
+    }
+
+    public void PlayCalmMusic()
+    {
+        musicSource.clip = sounds[0];
+        musicSource.Play();
     }
 
     private void OnDestroy()
@@ -74,5 +87,6 @@ public class AudioManagerScript : MonoBehaviour
         PlayerController.OnTouchSurface -= PlaySplashSound;
         PlayerController.OnCollisionWeed -= PlaySeaweedSound;
         PlayerController.OnPickUpGigaPearl -= PlayGigaperalSound;
+        PlayerController.OnWinning -= PlayCalmMusic;
     }
 }

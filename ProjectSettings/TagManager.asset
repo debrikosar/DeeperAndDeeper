@@ -20,6 +20,8 @@ TagManager:
   - TimeManager
   - GigaPearl
   - PearlCount
+  - AirBar
+  - MusicSource
   layers:
   - Default
   - TransparentFX
