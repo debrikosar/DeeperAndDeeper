@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,7 @@ public class SaveStorageScript : MonoBehaviour
     public bool isLoadingGame;
     public SaveData loadData;
     public SaveData saveData;
+    public TimeSpan playTime;
 
     private SaveManagerScript saveManagerScript;
 
