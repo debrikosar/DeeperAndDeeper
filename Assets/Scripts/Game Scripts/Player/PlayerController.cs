@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
 {
     public static event Action<float> OnTouchSurface;
     public static event Action<bool> OnUnderWater;
-    public static event Action OnStartGame;
     public static event Action OnPickUpPearl;
     public static event Action OnPickUpOxygenBuff;
     public static event Action OnCollisionShark;

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,16 +16,19 @@ public class AirBarScript : MonoBehaviour
 
     private SaveManagerScript saveManagerScript;
 
-
-    void Start()
+    void Awake()
     {
-        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
-        rectTransform = gameObject.GetComponent<RectTransform>();
-
         PlayerController.OnTouchSurface += RestoreAirAtSurfacen;
         PlayerController.OnUnderWater += CancellSurfaceAirRestoration;
         PlayerController.OnPickUpOxygenBuff += RestoreAir;
+        PlayerController.OnCollisionShark += SharkAirDepletion;
+    }
 
+    void Start()
+    {
+        isUnderwater = false;
+        saveManagerScript = GameObject.FindWithTag("SaveManager").GetComponent<SaveManagerScript>();
+        rectTransform = gameObject.GetComponent<RectTransform>();
         StartCoroutine(DepleteAir());
     }
 
