@@ -72,7 +72,7 @@ public class AirBarScript : MonoBehaviour
 
     private void ReduceAirConsumption()
     {
-        airDepletionSpeed = airDepletionSpeed + 0.1f;
+        airDepletionSpeed = airDepletionSpeed + 0.3f;
     }
 
     private void OnDestroy()
