@@ -8,9 +8,6 @@ public class SharkController : MonoBehaviour
     [SerializeField] SpriteRenderer sharkSpriteRenderer;
     [SerializeField] Sprite sharkLeft;
     [SerializeField] Sprite sharkRight;
-    [SerializeField] private GameObject bubbles;
-    [SerializeField] private Vector3 bubblesPosRight;
-    [SerializeField] private Vector3 bubblesPosLeft;
 
     private float lastPosX;
     private float lastPosY;
@@ -55,12 +52,10 @@ public class SharkController : MonoBehaviour
         if (sharkRb2D.velocity.x >= 0)
         {
             sharkSpriteRenderer.sprite = sharkRight;
-            bubbles.transform.localPosition = bubblesPosRight;
         }
         else
         {
             sharkSpriteRenderer.sprite = sharkLeft;
-            bubbles.transform.localPosition = bubblesPosLeft;
         }
     }
 
