@@ -53,3 +53,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fade
+    uniqueID: 926835465
+    locked: 0
+  - name: FlashLight
+    uniqueID: 3325735173
+    locked: 0
