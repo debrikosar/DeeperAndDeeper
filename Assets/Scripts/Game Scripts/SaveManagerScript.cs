@@ -13,6 +13,7 @@ public class SaveManagerScript : MonoBehaviour
 
     private SaveStorageScript saveStorageScript;
     private TimeManagerScript timeManagerScript;
+    private PearlScript pearlScript;
 
     public GameObject timeManager;
 
@@ -20,12 +21,13 @@ public class SaveManagerScript : MonoBehaviour
     {
         saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
         timeManagerScript = GameObject.FindWithTag("TimeManager").GetComponent<TimeManagerScript>();
+        pearlScript = GameObject.FindWithTag("PearlCount").GetComponent<PearlScript>();
     }
 
     public void LoadFields(SaveData loadData)
     {
         goldCount.text = loadData.goldAmount.ToString();
-        pearlCount.text = loadData.pearlAmount.ToString();
+        pearlScript.pearlCount = loadData.pearlAmount;
         timeManagerScript.playTime = loadData.playTime;
     }
 
@@ -38,5 +40,10 @@ public class SaveManagerScript : MonoBehaviour
     public void SaveFieldsIntoStatistic()
     {
         saveStorageScript.SaveStatistic(new SaveData(Int32.Parse(goldCount.text), Int32.Parse(pearlCount.text), saveStorageScript.playTime));
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
