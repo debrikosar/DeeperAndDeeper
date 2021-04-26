@@ -1358,6 +1358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ddad85282711a4baf74fe1d124d5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1809804470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3428262988762523146, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
+  m_PrefabInstance: {fileID: 6910207652968696040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1864203133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2755139174409834817, guid: a35cd849abef2bd46aff70d9573c3cf1, type: 3}
@@ -1442,6 +1447,10 @@ PrefabInstance:
       propertyPath: goldScript
       value: 
       objectReference: {fileID: 1772655607}
+    - target: {fileID: 4698608468388895143, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
+      propertyPath: pearlScript
+      value: 
+      objectReference: {fileID: 821692627}
     - target: {fileID: 5087376047906336059, guid: 25b52d9ecbe64f946b25314543386890, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1579,10 +1588,18 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 1864203133}
+    - target: {fileID: 3428262988762523146, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
+      propertyPath: flashLight
+      value: 
+      objectReference: {fileID: 1809804470}
     - target: {fileID: 4334519786055636885, guid: b5bd92cd2fdbe9740ad053857aeb28f7, type: 3}
       propertyPath: startPoint
       value: 
