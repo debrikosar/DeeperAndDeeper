@@ -64,4 +64,15 @@ public class AudioManagerScript : MonoBehaviour
         soundsSource.clip = sounds[6];
         soundsSource.Play();
     }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnCollisionGoldFish -= PlayGoldfishSound;
+        PlayerController.OnPickUpSpeedBuff -= PlaySpeedBoostSound;
+        PlayerController.OnPickUpOxygenBuff -= PlayAirBallonSound;
+        PlayerController.OnCollisionShark -= PlaySharkBiteSound;
+        PlayerController.OnTouchSurface -= PlaySplashSound;
+        PlayerController.OnCollisionWeed -= PlaySeaweedSound;
+        PlayerController.OnPickUpGigaPearl -= PlayGigaperalSound;
+    }
 }
