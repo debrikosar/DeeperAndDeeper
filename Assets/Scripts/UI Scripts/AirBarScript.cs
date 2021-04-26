@@ -12,7 +12,7 @@ public class AirBarScript : MonoBehaviour
     public float airDepletionSpeed = 1f;
     public float airDepletionAmount = 10f;
 
-    public float SharkDepletionAmount = 30f;
+    public float SharkDepletionAmount = 50f;
 
     private SaveManagerScript saveManagerScript;
 
@@ -68,8 +68,7 @@ public class AirBarScript : MonoBehaviour
 
     private void ReduceAirConsumption()
     {
-        if(airDepletionAmount > 2f)
-            airDepletionAmount--;
+        airDepletionSpeed = airDepletionSpeed + 0.1f;
     }
 
     private void OnDestroy()

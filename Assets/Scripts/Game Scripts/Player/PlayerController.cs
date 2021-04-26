@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private GameObject startPoint;
+    [SerializeField] private GameObject flashLight;
     [SerializeField] private float speed;
 
     private float horizontalMove;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         StartController.OnCloseStartCanvas += JumpInWater;
         ShopController.OnCloseShop += JumpInWater;
         ShopController.OnBuySpeed += AddSpeed;
+        ShopController.OnBuyFlashlight += AddFlashLight;
     } 
 
     private void Start()
@@ -127,9 +129,16 @@ public class PlayerController : MonoBehaviour
         speed++;
     }
 
+    private void AddFlashLight()
+    {
+        flashLight.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         StartController.OnCloseStartCanvas -= JumpInWater;
         ShopController.OnCloseShop -= JumpInWater;
+        ShopController.OnBuySpeed -= AddSpeed;
+        ShopController.OnBuyFlashlight -= AddFlashLight;
     }
 }

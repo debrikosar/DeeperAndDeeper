@@ -7,11 +7,14 @@ public class ShopController : MonoBehaviour
     public static event Action OnCloseShop;
     public static event Action OnBuyOxygen;
     public static event Action OnBuySpeed;
-    public static event Action<int> OnBuyAnythingFish;
+    public static event Action OnBuyFlashlight;
+    public static event Action<int> OnBuyAnything;
+    public static event Action<int> OnBuyAnythingPearl;
 
     [SerializeField] private GameObject shopCanvas;
 
     [SerializeField] GoldScript goldScript;
+    [SerializeField] PearlScript pearlScript;
     [SerializeField] TextMeshProUGUI oxygenPriceText;
     [SerializeField] TextMeshProUGUI speedPriceText;
     [SerializeField] TextMeshProUGUI flashlightPriceText;
@@ -28,7 +31,7 @@ public class ShopController : MonoBehaviour
     public void BuyOxygen()
     {   if(goldScript.goldCount >= oxygenPrice)
         {
-            OnBuyAnythingFish?.Invoke(oxygenPrice);
+            OnBuyAnything?.Invoke(oxygenPrice);
             oxygenPrice *= 2;
             OnBuyOxygen?.Invoke();
             RefreshText();
@@ -39,10 +42,21 @@ public class ShopController : MonoBehaviour
     {
         if (goldScript.goldCount >= speedPrice)
         {
-            OnBuyAnythingFish?.Invoke(speedPrice);
+            OnBuyAnything?.Invoke(speedPrice);
             speedPrice *= 2;
             OnBuySpeed?.Invoke();
             RefreshText();
+        }
+    }
+
+    public void BuyFlashlight()
+    {
+        if (pearlScript.pearlCount >= flashlightPrice)
+        {
+            OnBuyAnythingPearl?.Invoke(flashlightPrice);
+            OnBuyFlashlight?.Invoke();
+            flashlightPrice = 0;
+            flashlightPriceText.text = "";
         }
     }
 

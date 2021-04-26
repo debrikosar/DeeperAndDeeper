@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,12 +9,13 @@ public class PearlScript : MonoBehaviour
     private void Awake()
     {
         PlayerController.OnPickUpPearl += PearlPickedUp;
+        ShopController.OnBuyAnythingPearl += SpendPearl;
     }
 
     private void Start()
     {
         pearlCountText = this.gameObject.GetComponent<TextMeshProUGUI>();
-        pearlCount = Int32.Parse(pearlCountText.text);
+        pearlCountText.text = pearlCount.ToString();
     }
 
     public void PearlPickedUp()
@@ -35,5 +33,6 @@ public class PearlScript : MonoBehaviour
     private void OnDestroy()
     {
         PlayerController.OnPickUpPearl -= PearlPickedUp;
+        ShopController.OnBuyAnythingPearl -= SpendPearl;
     }
 }
