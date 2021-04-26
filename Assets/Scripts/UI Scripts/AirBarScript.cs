@@ -14,6 +14,8 @@ public class AirBarScript : MonoBehaviour
     public float airDepletionSpeed = 1f;
     public float airDepletionAmount = 10f;
 
+    public float SharkDepletionAmount = 30f;
+
     private SaveManagerScript saveManagerScript;
 
 
@@ -55,5 +57,10 @@ public class AirBarScript : MonoBehaviour
         SceneManager.LoadScene("GameEndScene"); 
 
         StopCoroutine(DepleteAir());
+    }
+
+    public void SharkAirDepletion()
+    {
+        rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x - SharkDepletionAmount, rectTransform.offsetMax.y);
     }
 }
