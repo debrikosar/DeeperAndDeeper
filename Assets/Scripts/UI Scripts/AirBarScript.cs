@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,8 @@ public class AirBarScript : MonoBehaviour
     public float SharkDepletionAmount = 30f;
 
     private SaveManagerScript saveManagerScript;
+
+    public static event Action OnOxygenDepletion;
 
     void Awake()
     {
@@ -55,6 +58,7 @@ public class AirBarScript : MonoBehaviour
             yield return new WaitForSeconds(airDepletionSpeed);
         }
 
+        OnOxygenDepletion?.Invoke();
         saveManagerScript.SaveFieldsIntoStatistic();
         SceneManager.LoadScene("GameEndScene"); 
 
