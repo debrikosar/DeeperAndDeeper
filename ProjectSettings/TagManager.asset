@@ -21,6 +21,7 @@ TagManager:
   - GigaPearl
   - PearlCount
   - AirBar
+  - MusicSource
   layers:
   - Default
   - TransparentFX
