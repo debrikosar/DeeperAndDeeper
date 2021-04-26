@@ -17,6 +17,7 @@ TagManager:
   - OxygenBuff
   - Shark
   - Coral
+  - TimeManager
   - GigaPearl
   layers:
   - Default

@@ -17,7 +17,7 @@ public class EndGameMenuScript : MonoBehaviour
         saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
         goldAmount.text = saveStorageScript.saveData.goldAmount.ToString();
         pearlAmount.text = saveStorageScript.saveData.pearlAmount.ToString();
-        timeAmount.text = saveStorageScript.playTime.ToString().Substring(0, 8);
+        timeAmount.text = saveStorageScript.saveData.playTime.ToString().Substring(0, 8);
     }
 
     public void CloseGame() => 
