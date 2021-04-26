@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public static event Action OnPickUpPearl;
     public static event Action OnPickUpGigaPearl;
     public static event Action OnPickUpOxygenBuff;
+    public static event Action OnPickUpSpeedBuff;
     public static event Action OnCollisionShark;
     public static event Action OnCollisionGoldFish;
+    public static event Action OnCollisionWeed;
 
     [SerializeField] private Rigidbody2D playerRb2d;
     [SerializeField] private Animator animator;
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("Seaweed"))
         {
+            OnCollisionWeed?.Invoke();
             StartCoroutine(TouchSeaweedRoutine());
         }
 
@@ -114,6 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("SpeedBuff"))
         {
+            OnPickUpSpeedBuff?.Invoke();
             StartCoroutine(PickUpSpeedBuff());
         }
 

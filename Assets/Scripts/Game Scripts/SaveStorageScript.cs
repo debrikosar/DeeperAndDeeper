@@ -17,6 +17,8 @@ public class SaveStorageScript : MonoBehaviour
 
     private static bool isExisting;
 
+    public float soundsVolume;
+
     public void Awake()
     {
         if (isExisting)
@@ -31,6 +33,7 @@ public class SaveStorageScript : MonoBehaviour
 
     void Start()
     {
+        soundsVolume = 1;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

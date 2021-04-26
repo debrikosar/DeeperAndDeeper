@@ -14,16 +14,18 @@ public class SettingsScript : MonoBehaviour
 
     public GameObject soundManager;
     private SoundManagerScript soundManagerScript;
+    private SaveStorageScript saveStorageScript;
 
     private void Start()
     {
         soundSlider = soundsObject.GetComponent<Slider>();
         musicSlider = musicObject.GetComponent<Slider>();
         soundManagerScript = soundManager.GetComponent<SoundManagerScript>();
+        saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
     }
 
     public void ChangeSoundVolume() =>
-        soundManagerScript.ChangeSoundsVolume(soundSlider.value);
+        saveStorageScript.soundsVolume = soundSlider.value;
 
     public void ChangeMusicVolume() =>
         soundManagerScript.ChangeMusicVolume(musicSlider.value);
