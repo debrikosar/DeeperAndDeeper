@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject startPoint;
     [SerializeField] private GameObject flashLight;
+    [SerializeField] private GameObject bubbles;
+    [SerializeField] private Vector3 bubblesPosRight;
+    [SerializeField] private Vector3 bubblesPosLeft;
     [SerializeField] private float speed;
 
     private SaveManagerScript saveManagerScript;
@@ -66,10 +69,12 @@ public class PlayerController : MonoBehaviour
             if (horizontalMove > 0)
             {
                 animator.SetBool("IsRight", true);
+                bubbles.transform.localPosition = bubblesPosRight;
             }
             else if(horizontalMove < 0)
             {
                 animator.SetBool("IsRight", false);
+                bubbles.transform.localPosition = bubblesPosLeft;
             }
         }  
     }
