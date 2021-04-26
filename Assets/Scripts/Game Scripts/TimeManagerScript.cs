@@ -15,6 +15,7 @@ public class TimeManagerScript : MonoBehaviour
         startTime = DateTime.Now;
         saveStorageScript = GameObject.FindWithTag("SaveStorage").GetComponent<SaveStorageScript>();
         AirBarScript.OnOxygenDepletion += SaveDeathPlayTime;
+        PlayerController.OnWinning += SaveDeathPlayTime;
     }
 
     public void SavePlayTime()
