@@ -74,10 +74,14 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsRight", true);
                 bubbles.transform.localPosition = bubblesPosRight;
             }
-            else if(horizontalMove < 0)
+            else if (horizontalMove < 0)
             {
                 animator.SetBool("IsRight", false);
                 bubbles.transform.localPosition = bubblesPosLeft;
+            }
+            else
+            {
+                bubbles.transform.localPosition = Vector3.zero;
             }
         }  
     }
